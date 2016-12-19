@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh_TW">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.css">
+	<script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+	<script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+	<script type="text/javascript" src='./reactToggle.js'></script>
+</head>
+<body>
+<script>
+	let provider = [
+		{label : 'java', 				value:'1', checked:''},
+		{label : 'ruby', 				value:'2', checked:''},
+		{label : 'javascript', 	value:'3', checked:'checked'}
+	]
+	
+	console.log(window.ToggleButtons.TYPE) // SINGLE_TITLE_TOGGLE  MUTIL_TITLE_TOGGLE RADIO_TITLE
+
+
+	let toggleButtons = React.createElement(window.ToggleButtons, {
+		type : window.ToggleButtons.TYPE.MUTIL_TITLE_TOGGLE, 
+		provider : provider,
+		labelKey : 'label',
+	  valueKey : 'value',
+	  activeKey : 'checked',
+	  activeVal : 'checked',
+	  unActiveVal : ''
+	})
+	ReactDOM.render(toggleButtons, document.body)
+</script>
+</body>
+</html>
