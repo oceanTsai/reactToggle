@@ -2,7 +2,7 @@
 react Toggle
 
 # install
-npm install react-toggle --save-dev
+npm install react-toggle-oc --save-dev
 
 # build and start
 1. npm install   
