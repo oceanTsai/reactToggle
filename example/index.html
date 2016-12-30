@@ -10,6 +10,10 @@
 </head>
 <body>
 <script>
+	var onClick=function(val){
+		console.log(val)
+	}
+
 	let provider = [
 		{label : 'java', 				value:'1', checked:''},
 		{label : 'ruby', 				value:'2', checked:''},
@@ -26,7 +30,8 @@
 	  valueKey : 'value',
 	  activeKey : 'checked',
 	  activeVal : 'checked',
-	  unActiveVal : ''
+	  unActiveVal : '',
+	  onClick : onClick
 	})
 	ReactDOM.render(toggleButtons, document.body)
 </script>

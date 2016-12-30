@@ -111,8 +111,9 @@ var ToggleButtons = function (_Component) {
       type == TYPE.SINGLE_TOGGLE && (0, _behaviorProxyOc.singleToggle)(provider, valueKey, val, activeKey, activeVal, unActiveVal);
       type == TYPE.MUTIL_TOGGLE && (0, _behaviorProxyOc.mutilToggle)(provider, valueKey, val, activeKey, activeVal, unActiveVal);
       type == TYPE.RADIO && (0, _behaviorProxyOc.radio)(provider, valueKey, val, activeKey, activeVal, unActiveVal);
+
       this.forceUpdate(function () {
-        (0, _generalUtil.hasVal)(onClick) && onClick(val, e);
+        (0, _generalUtil.hasVal)(onClick) && onClick((0, _behaviorProxyOc.filterChecked)(provider, activeKey, activeVal), e);
       });
     }
   }, {

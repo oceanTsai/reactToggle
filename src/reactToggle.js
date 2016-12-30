@@ -1,5 +1,5 @@
 import {hasVal, toStr}  from 'general-util'
-import {singleToggle, mutilToggle, radio, singleToggleByTile, mutilToggleByTile, radioByTile, selectAll, unSelectAll} from 'behavior-proxy-oc'
+import {singleToggle, mutilToggle, radio, singleToggleByTile, mutilToggleByTile, radioByTile, selectAll, unSelectAll, filterChecked} from 'behavior-proxy-oc'
 import {prefixCreate} from 'enum-factory'
 import React, { PropTypes, Component } from 'react'
 export const TYPE = prefixCreate([
@@ -54,8 +54,9 @@ export default class ToggleButtons extends Component{
     type == TYPE.SINGLE_TOGGLE && singleToggle(provider, valueKey, val, activeKey, activeVal, unActiveVal)
     type == TYPE.MUTIL_TOGGLE && mutilToggle(provider, valueKey, val, activeKey, activeVal, unActiveVal)
     type == TYPE.RADIO && radio(provider, valueKey, val, activeKey, activeVal, unActiveVal)
+    
     this.forceUpdate(()=>{
-      hasVal(onClick) && onClick(val, e)  
+      hasVal(onClick) && onClick(filterChecked(provider, activeKey, activeVal), e)  
     })
   }
 
